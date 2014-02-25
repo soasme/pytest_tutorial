@@ -21,3 +21,17 @@ def one_minutes_ago(request):
 
 def test_one_minutes_ago(one_minutes_ago):
     assert one_minutes_ago == '1分钟前'
+
+@pytest.mark.parametrize(
+    "time, expected", [
+        # time, expected
+        # 61s ago, 1分钟前
+
+        # 121s ago, 2分钟前
+
+        # 10001 ago, 2小时前
+
+    ]
+)
+def test_minutes_ago(time, expected):
+    assert mtimeformat(time) == expected
